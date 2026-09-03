@@ -1,0 +1,417 @@
+class Day5{
+	int num1;  // non-static 
+	int num2;       
+	                  // val1=-1  val2=10
+	public void set(int val1, int val2){
+		if(val1 <0 || val2<0){ // validate // condition
+			System.out.println("You can't store Negative Values:  ");
+			System.exit(0);
+		}
+		num1=val1;
+		num2=val2;
+	}
+	public void get(){
+		System.out.println(num1 +" "+num2);
+	}
+
+	public static void main(String args[]){ 
+		Day5 d=new Day5();
+		//--> unable to validate the data
+		// --> it accessable to Object 
+		d.set(-1,10);
+		d.get();
+	}
+}
+
+
+Q1. Animal Sound
+
+You are developing an application for a zoo. Every animal has a sound() behavior. The Animal class provides a general sound, but the Dog class provides its own sound.
+
+class Animal {
+    void sound() {
+        System.out.println("Animal sound");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    void sound() {
+        System.out.println("Dog barks");
+    }
+}
+
+The following code is executed:
+
+Animal a = new Dog();
+a.sound();
+
+What will be printed?
+
+A. Animal sound
+B. Dog barks
+C. Compilation error
+D. Nothing
+
+Q2. Vehicle Starting
+
+A vehicle application has a general Vehicle class. A Car inherits from Vehicle and provides its own implementation of start().
+
+Vehicle v = new Car();
+v.start();
+
+The actual object created is a Car.
+
+Which start() method will Java execute?
+
+A. Always the Vehicle method
+B. The Car method
+C. Both methods
+D. Compilation error
+
+Q3. Employee Work
+
+A company has a parent class Employee. A Developer inherits from it and changes the behavior of the work() method.
+
+class Employee {
+    void work() {
+        System.out.println("Employee working");
+    }
+}
+
+class Developer extends Employee {
+    @Override
+    void work() {
+        System.out.println("Developer coding");
+    }
+}
+
+A developer creates:
+
+Employee e = new Developer();
+e.work();
+
+Why does the Developer version execute?
+
+A. Because Employee does not have work()
+B. Because the actual object is Developer
+C. Because Developer is a static class
+D. Because constructors are overridden
+
+Q4. Same Method Signature
+
+A parent class has:
+
+void display()
+
+A child class has:
+
+void display()
+
+with the same method name and same parameters.
+
+What is this situation called?
+
+A. Method overloading
+B. Method overriding
+C. Constructor overloading
+D. Encapsulation
+
+Q5. Different Parameters
+
+A parent class has:
+
+void calculate(int amount)
+
+The child class has:
+
+void calculate(double amount)
+
+The child developer says:
+
+"I have overridden the parent's method."
+
+Is the developer correct?
+
+A. Yes, because the method name is the same
+B. Yes, because both methods calculate an amount
+C. No, because the parameter list is different
+D. No, because inheritance is not allowed
+
+Q6. Access Modifier
+
+A banking application has:
+
+class BankAccount {
+    protected void withdraw() {
+        System.out.println("Bank withdrawal");
+    }
+}
+
+The child class contains:
+
+class SavingsAccount extends BankAccount {
+    public void withdraw() {
+        System.out.println("Savings withdrawal");
+    }
+}
+
+Is this a valid override?
+
+A. Yes
+B. No, because public cannot override protected
+C. No, because the method must be private
+D. No, because child classes cannot override parent methods
+
+Q7. Reducing Visibility
+
+A parent class contains:
+
+class Employee {
+    public void work() {
+        System.out.println("Employee");
+    }
+}
+
+A child developer writes:
+
+class Developer extends Employee {
+    protected void work() {
+        System.out.println("Developer");
+    }
+}
+
+What is the problem?
+
+A. Nothing; this is valid overriding
+B. The child is reducing the visibility of the method
+C. The method name is wrong
+D. The child cannot have any methods
+
+Q8. Return Type
+
+A parent class contains:
+
+class Animal {
+    Animal getAnimal() {
+        return new Animal();
+    }
+}
+
+A child class contains:
+
+class Dog extends Animal {
+    Dog getAnimal() {
+        return new Dog();
+    }
+}
+
+Is this valid overriding?
+
+A. Yes
+B. No, because return types must always be exactly identical
+C. No, because constructors are involved
+D. No, because Dog cannot extend Animal
+
+Q9. Static Method
+
+A developer writes:
+
+class Parent {
+    static void show() {
+        System.out.println("Parent");
+    }
+}
+
+class Child extends Parent {
+    static void show() {
+        System.out.println("Child");
+    }
+}
+
+The developer says:
+
+"Child.show() overrides Parent.show()."
+
+Is this statement correct?
+
+A. Yes, all methods can be overridden
+B. No, static methods are not overridden
+C. Yes, because Child extends Parent
+D. No, because static methods cannot be called
+
+Q10. Private Method
+
+A parent class contains:
+
+class Parent {
+    private void display() {
+        System.out.println("Parent");
+    }
+}
+
+The child class contains:
+
+class Child extends Parent {
+    private void display() {
+        System.out.println("Child");
+    }
+}
+
+Does the child's display() override the parent's display()?
+
+A. Yes
+B. No, because private methods are not inherited for overriding
+C. Yes, because both have the same method name
+D. No, because Child cannot have a display() method
+
+
+Q11. 
+A bank wants every account to use the same security-check implementation.
+
+The parent class declares:
+
+class Account {
+    final void securityCheck() {
+        System.out.println("Security check");
+    }
+}
+
+A child class tries:
+
+class SavingsAccount extends Account {
+    void securityCheck() {
+        System.out.println("Savings security check");
+    }
+}
+
+What happens?
+
+A. The child successfully overrides the method
+B. Compilation error because a final method cannot be overridden
+C. Both methods execute
+D. The parent method becomes private
+
+Q12. 
+
+A parent class contains:
+
+class Bank {
+    void withdraw() throws Exception {
+        System.out.println("Withdrawal");
+    }
+}
+
+A child class overrides it as:
+
+class SavingsBank extends Bank {
+    void withdraw() throws ArithmeticException {
+        System.out.println("Savings withdrawal");
+    }
+}
+
+What is the correct conclusion?
+
+A. The override is valid
+B. The override is invalid because every exception must be exactly the same
+C. The override is invalid because child methods cannot throw exceptions
+D. The override is invalid because ArithmeticException is unchecked
+
+Q13. Overriding vs Overloading
+
+An employee application contains:
+
+class Employee {
+    void work() {
+        System.out.println("Employee working");
+    }
+}
+
+class Developer extends Employee {
+    void work(int hours) {
+        System.out.println("Developer worked for " + hours);
+    }
+}
+
+The developer says:
+
+"work(int hours) overrides work()."
+
+What is the correct answer?
+
+A. Correct, because both methods are named work
+B. Correct, because Developer extends Employee
+C. Incorrect, because the parameter list is different
+D. Incorrect, because work() cannot be used in Java
+
+Q14. Runtime Object
+
+Consider an online payment system:
+
+class Payment {
+    void pay() {
+        System.out.println("Generic payment");
+    }
+}
+
+class UPI extends Payment {
+    @Override
+    void pay() {
+        System.out.println("UPI payment");
+    }
+}
+
+class Card extends Payment {
+    @Override
+    void pay() {
+        System.out.println("Card payment");
+    }
+}
+
+The application receives:
+
+Payment p;
+
+p = new UPI();
+p.pay();
+
+p = new Card();
+p.pay();
+
+What will happen?
+
+A. UPI payment, then Card payment
+B. Generic payment, then Generic payment
+C. Compilation error
+D. Card payment, then UPI payment
+
+Q15. 
+
+You are reviewing an online shopping application.
+
+The parent class contains:
+
+class Product {
+    protected Object getPrice() throws Exception {
+        return 100;
+    }
+}
+
+The child class contains:
+
+class Mobile extends Product {
+    public Integer getPrice() throws RuntimeException {
+        return 200;
+    }
+}
+
+A junior developer says:
+
+"This method cannot override the parent method because the return type and exception are different."
+
+Which statement is correct?
+
+A. The child method is a valid override
+B. The child method is invalid because Integer is not related to Object
+C. The child method is invalid because RuntimeException is not allowed
+D. The child method is invalid because public cannot override protected
