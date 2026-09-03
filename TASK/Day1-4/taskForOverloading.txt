@@ -1,0 +1,228 @@
+OVERLOADING PRACTICE QUESTIONS
+
+Q1. What will be the output?
+
+class Test {
+    static void show(int a) { System.out.println("int version"); }
+    static void show(long a) { System.out.println("long version"); }
+    static void show(Integer a) { System.out.println("Integer version"); }
+    static void show(Object a) { System.out.println("Object version"); }
+    static void show(int... a) { System.out.println("varargs version"); }
+
+    public static void main(String[] args) {
+        show(10);
+    }
+}
+
+
+Q2. What will be the output?
+
+class Test {
+    static void show(String s) { System.out.println("String"); }
+    static void show(Object o) { System.out.println("Object"); }
+
+    public static void main(String[] args) {
+        show(null);
+    }
+}
+
+
+Q3. Will this code compile? Why or why not?
+
+class Test {
+    int show(int a) { return a; }
+    double show(int a) { return a; }//yes
+}
+
+
+Q4. Will this code compile? Why or why not?
+
+class Test {
+    static void show(int[] a) { System.out.println("array version"); }
+    static void show(int... a) { System.out.println("varargs version"); }
+}//no
+
+
+Q5. What will be the output?
+
+class Test {
+    static void show(long a) { System.out.println("long"); }
+    static void show(Integer a) { System.out.println("Integer"); }
+
+    public static void main(String[] args) {
+        int x = 5;
+        show(x);//System.out.println("long"); 
+    }
+}
+
+
+Q6. What will be the output?
+
+class Box {
+    int w, h;
+    Box(int w) { this(w, w); }
+    Box(int w, int h) { this.w = w; this.h = h; }
+
+    public static void main(String[] args) {
+        Box b = new Box(5);
+        System.out.println(b.w + " " + b.h);//55
+    }
+}
+
+
+Q7. What will be the output? Explain why.
+
+class Parent {
+    static void greet() { System.out.println("Parent"); }
+}
+class Child extends Parent {
+    static void greet() { System.out.println("Child"); }
+}
+
+public class Test {
+    public static void main(String[] args) {
+        Parent p = new Child();
+        p.greet//System.out.println("Parent");
+    }
+}
+
+
+Q8. True or False: Static methods can be overloaded but cannot be truly overridden. Justify your answer.
+
+
+class Base {
+    int id = 1000; 
+    Base() {
+        Base(); 
+    }
+ 
+    void Base() { 
+        System.out.println(++id); 
+    }
+}
+ 
+class Derived extends Base {
+    int id = 2000; 
+ 
+    Derived() {} 
+ 
+    void Base() { 
+        System.out.println(--id); 
+    }
+}
+
+
+
+class Parent{
+	protected static final Parent p=new Parent();
+	static {
+		System.out.println("I am in Static block");
+	}//1
+	{
+		System.out.println("I am in NON-Static block");
+	}
+	Parent(){//2
+	System.out.println(" I AM IN Constructer....");	
+	}
+	
+	public static void main(String args[]){
+		new Parent();
+	}
+	
+}
+/*
+"I am in Static block"
+" I AM IN Constructer...."   |  "I am in NON-Static block"
+"I am in NON-Static block"
+*/
+
+
+public class Addition 
+{
+   public Addition(int x, int y)
+   {	  
+	   super();
+	   System.out.println("Sum of two integer is :"+(x+y));
+   }
+   
+   public Addition(int x, int y, int z)
+   {
+	   this(100,200);
+	   System.out.println("Sum of three integer is :"+(x+y+z));
+   }
+   
+   public Addition(float x, float y)
+   {	
+	   this(10,20,30);
+	   System.out.println("Sum of two float is :"+(x+y));
+   }
+}
+
+Main.java
+---------
+public class Main {
+
+	public static void main(String []  args) 
+	{
+		new Addition(2.3f, 7.8F);		
+		
+	}
+
+}
+
+/////////////////////////////// 
+
+public class Addition 
+{
+   public Addition()
+   {
+	  this(100);
+	  System.out.println("No Argument Constructor");
+   }
+   
+   public Addition(int x)
+   {
+	   this(1000,2000);  
+	   System.out.println("One Argument Constructor :"+x);
+	   
+   }
+   public Addition(int x, int y)
+   {
+	   super();
+	   System.out.println("Two Argument Constructor :"+x+":"+y);
+   }
+   
+   {
+		System.out.println("Instance Block");
+   }
+}
+
+Test.java
+----------
+package com.ravi.constructor_overloading2;
+
+public class Test {
+
+	public static void main(String[] args) 
+	{
+		new Addition();
+		
+	}
+}
+
+
+///////////////////
+
+Advantage method overloading
+We can create multiple methods with same name
+so that theIadvantages are
+1. we no need to reinvent new names and also
+2. we no need to remember multple names
+while calling them
+
+C langauge does not support Method overloading
+hence in C langauge we must create every method
+with new name even though the new method
+performing same operation
+
+3
