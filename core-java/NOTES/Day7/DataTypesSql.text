@@ -1,0 +1,47 @@
+			Data Types
+
+tinyint:
+	1. memory storage 1 byte
+	2. it's range -128 to 127
+	3. it's unsigned range 0 to 225
+
+smallint:
+	1. memory storage 2 byte.
+	2. it's range -32,768 to 32,767
+	3. it's unsigned range 0 to 65,535
+
+mediumint:
+    1.memory storage 3 byte.
+	2. it's range -8.3 to 8.3 million
+	3. it's unsigned range 0 to 16.7 million
+	
+int:
+   1. memory storage is 4 byte
+   2. it's range -2.14 to 2.14 billion
+   3. it's unsigned range 0 to 4.29 billion.
+   
+bigint:
+   1. memory storage is 8 byte
+   2. it's range -9Quintillion to 9Quintillion
+   3. it's unsigned range 0 to 18 Quintillion
+   
+=======================
+decimal:
+	1.it's stores the decimal in preciesed way
+	2. total is 65 
+       *55
+       *10	   
+	decimal(5,3);
+	12345.098
+float:
+	1.memory storage of 4 byte
+	2. it's doesn't stores the decimal in preciesed way
+	3. range 7 
+    fee float --> 89000.56
+	
+double:
+   1.memory storage of 8 byte
+   2. it's doesn't stores the decimal in preciesed way
+   3. range 15-16
+	
+    fee double --> 89000.565326565
