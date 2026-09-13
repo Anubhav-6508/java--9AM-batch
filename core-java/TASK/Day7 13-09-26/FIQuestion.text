@@ -1,0 +1,388 @@
+# Function<T, R> Functional Interface
+
+Functional Interface → 
+`Function<T, R>`
+**Important:** No Stream API questions.
+
+---
+
+## Part A — Interview Questions
+
+### 1. Basic Concept
+
+What is the `Function<T, R>` functional interface in Java? What is the purpose of `T` and `R`?
+
+### 2. Abstract Method
+
+What is the abstract method of the `Function` interface? Explain:
+
+```java
+R apply(T t);
+```
+
+### 3. Input and Output
+
+Why is `Function<T, R>` called a function when it accepts one input and produces one output?
+
+### 4. Same Input and Return Type
+
+Can the input type and return type of `Function` be the same? Explain with an example.
+
+### 5. Different Input and Return Type
+
+Can the input type and return type of `Function` be different? Explain with an example.
+
+### 6. Multiple Arguments
+
+Can a `Function` take two or more arguments? If not, which functional interface can be used for two arguments?
+
+### 7. Lambda Expression
+
+How can you implement `Function<T, R>` using a lambda expression?
+
+### 8. Function as Method Argument
+
+Can a `Function` be passed as a method argument? Explain why this is useful.
+
+### 9. Function as Method Return Value
+
+Can a method return a `Function<T, R>`? If yes, what would be the use of returning a function?
+
+### 10. Comparison
+
+What is the difference between:
+
+* `Function<T, R>`
+* `Consumer<T>`
+* `Predicate<T>`
+* `Supplier<T>`
+
+Compare them based on their **input and output**.
+
+### 11. Function Returning Function
+
+Can a `Function` return another `Function`? Explain.
+
+### 12. Custom Objects
+
+Can `Function` be used with custom classes instead of `Integer` or `String`? Explain with an example.
+
+### 13. Null Return
+
+What happens if the `apply()` method returns `null`?
+
+### 14. Own Functional Interface
+
+Can we create our own functional interface similar to `Function`? Why would we do that?
+
+### 15. Function vs UnaryOperator
+
+What is the difference between `Function<T, R>` and `UnaryOperator<T>`?
+
+### 16. Function vs BiFunction
+
+What is the difference between `Function<T, R>` and `BiFunction<T, U, R>`?
+
+---
+
+# Part B — Coding Interview Questions
+
+## 1. Convert String to Integer
+
+Write a Java program using:
+
+```java
+Function<String, Integer>
+```
+
+to convert a numeric String into an Integer.
+
+**Example:**
+
+```text
+Input: "100"
+Output: 100
+```
+
+---
+
+## 2. Find String Length
+
+Create a:
+
+```java
+Function<String, Integer>
+```
+
+that takes a String and returns its length.
+
+**Example:**
+
+```text
+Input: "Java"
+Output: 4
+```
+
+---
+
+## 3. Convert String to Uppercase
+
+Create a:
+
+```java
+Function<String, String>
+```
+
+that converts a given String into uppercase.
+
+**Example:**
+
+```text
+Input: "java"
+Output: "JAVA"
+```
+
+---
+
+## 4. Calculate Square
+
+Create a:
+
+```java
+Function<Integer, Integer>
+```
+
+that takes an integer and returns its square.
+
+**Example:**
+
+```text
+Input: 5
+Output: 25
+```
+
+---
+
+## 5. Calculate Employee Salary
+
+Create a:
+
+```java
+Function<Double, Double>
+```
+
+that takes a basic salary and returns the salary after adding a **20% bonus**.
+
+**Example:**
+
+```text
+Basic Salary: 50000
+Output: 60000
+```
+
+---
+
+## 6. Celsius to Fahrenheit
+
+Create a:
+
+```java
+Function<Double, Double>
+```
+
+that converts Celsius temperature into Fahrenheit.
+
+Formula:
+
+```text
+F = (C × 9/5) + 32
+```
+
+**Example:**
+
+```text
+Input: 25
+Output: 77
+```
+
+---
+
+## 7. Extract Employee Name
+
+Create an `Employee` class:
+
+```java
+class Employee {
+    int id;
+    String name;
+}
+```
+
+Create:
+
+```java
+Function<Employee, String>
+```
+
+that accepts an Employee object and returns the employee's name.
+
+---
+
+## 8. Extract Employee Salary
+
+Create an `Employee` class containing:
+
+```text
+id
+name
+salary
+```
+
+Create:
+
+```java
+Function<Employee, Double>
+```
+
+that accepts an Employee object and returns the employee's salary.
+
+---
+
+## 9. Function as Method Argument
+
+Write a method:
+
+```java
+void process(String data, Function<String, String> function)
+```
+
+Call this method with different lambda expressions to perform different operations on the String.
+
+For example:
+
+```text
+Convert to uppercase
+Convert to lowercase
+Add some text
+Reverse the String
+```
+
+---
+
+## 10. Function as Method Return Value
+
+Write a method:
+
+```java
+Function<Integer, Integer> getOperation()
+```
+
+Return a lambda expression that performs an operation on an integer.
+
+Then call the returned Function using:
+
+```java
+apply()
+```
+
+---
+
+# Part C — Strong Interview Coding Question
+
+## 11. Generic Function Processor
+
+Create a generic method:
+
+```java
+static <T, R> R process(T value, Function<T, R> function)
+```
+
+The method should accept:
+
+1. A value
+2. A Function
+
+and return the result produced by the Function.
+
+### Test Case 1
+
+```text
+String → Integer
+```
+
+Example:
+
+```text
+"Java" → 4
+```
+
+### Test Case 2
+
+```text
+Integer → Integer
+```
+
+Example:
+
+```text
+5 → 25
+```
+
+### Test Case 3
+
+```text
+String → String
+```
+
+Example:
+
+```text
+"java" → "JAVA"
+```
+
+---
+
+# Part D — Rapid-Fire Questions
+
+1. What is `Function<T,R>`?
+2. What is `T`?
+3. What is `R`?
+4. What is the abstract method of Function?
+5. What is the return type of `apply()`?
+6. How many arguments does `apply()` accept?
+7. Can `T` and `R` be the same?
+8. Can `T` and `R` be different?
+9. Can Function accept two parameters?
+10. Can Function return `void`?
+11. Can Function return another Function?
+12. Can Function be used with a custom class?
+13. Can a Function be passed as an argument?
+14. Can a Function be returned from a method?
+15. What is the difference between Function and Predicate?
+16. What is the difference between Function and Consumer?
+17. What is the difference between Function and Supplier?
+18. What is the difference between Function and BiFunction?
+19. What is the difference between Function and UnaryOperator?
+20. Which method is used to execute the Function?
+
+**Expected answer:** `apply()`
+
+---
+
+## Student Rule
+
+**Do not use Stream API for these questions.**
+
+The focus should be on:
+
+```text
+Functional Interface
+        ↓
+Function<T,R>
+        ↓
+Lambda Expression
+        ↓
+apply()
+        ↓
+Input → Processing → Output
+```
