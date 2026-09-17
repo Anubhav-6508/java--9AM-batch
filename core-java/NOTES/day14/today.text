@@ -1,0 +1,10 @@
+binary :
+input:
+	1.FileInputStream(binary)(1 byte)
+	2.DataInputStream(respected data type)
+	3.ObjectInputStream
+out :
+
+    1.FileOutputStream(binary)(1 byte)
+	2.DataOutputStream(respected data type)
+	3.ObjectOutputStream
