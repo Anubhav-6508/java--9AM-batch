@@ -8,14 +8,14 @@ class FIS_Demo{
 		int val2=fis.read();
 		int val3=fis.read();
 		int val4=fis.read();
-		String str="abcg";
-	 byte[] byteValue= str.getBytes();
-		int bval=fis.read(byteValue);
-		IO.println(val1);
-		IO.println(val2);
-		IO.println(val3);
-		IO.println(val4);
-		IO.println(bval);
+		int val5=fis.read();
+		int val6=fis.read();
+		IO.println(val1 +"   "+ (char)val1);
+		IO.println(val2+ "   "+ (char)val2);
+		IO.println(val3+ "   "+ (char)val3);
+		IO.println(val4+ "   "+ (char)val4);
+		IO.println(val5+ "   "+ (char)val5);
+		IO.println(val6+ "   "+ (char)val6);
 		fis.close();
 	}
 	

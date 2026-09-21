@@ -8,7 +8,7 @@ class FOS_Demo{
 	 String str="abcg";
 	 byte[] byteValue= str.getBytes();
 	 fos.write(byteValue);
-	 fos.flush();
+	
      fos.close();
 	 IO.println("data added Succesfully..");
 	  	
