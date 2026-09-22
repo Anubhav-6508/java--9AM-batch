@@ -12,3 +12,27 @@ class Student implements Serializable{
 		return sId+" "+sName+" "+fee;
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//private static final long serialVersionUID = 1L;
