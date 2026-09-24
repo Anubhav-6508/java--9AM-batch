@@ -1,0 +1,37 @@
+					Exception Handling
+					
+1. it is use to distrupt excution flow of code
+    Exception is class and parent is Throwable
+	--- java.lang.Throwable
+	--- java.lang.Exception
+	Exception are present in lang package
+	
+2. When an exception is raised?
+   when an user giving wrong input or wrong value then we usally face Exception;
+
+3.What is need of an exception?
+--> to stop user giving wrong input 
+
+
+4. What will happen when an exception is occured?
+--> distrupt excution flow of code
+
+5. What is the meaning of abnormal termination?
+--> abnormal termination mean  user giving wrong value or  input after the our flow excution of code is distrupted  
+
+6. What is the exception message format?
+Exception in thread "main":      (name of thread)
+//java.lang.ArithmeticException: (name of exception)
+//  what is core problem of the code(/ by zero)
+
+
+
+7.Is the exception message understandable to end-user?
+ no user can't understand technical word or message
+ 
+8. What is the problem if the program is termianted       abormally?
+
+9. Solution to this abnormal termination problems?
+10. By handling exception can we solve exception?
+11. How can we solve exception?
+ 
