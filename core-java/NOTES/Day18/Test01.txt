@@ -1,0 +1,59 @@
+/*
+=================================================================================
+				Exception Handling	
+=================================================================================
+1. What is an exception?
+	- An excepiton is runtime error 
+	- It is an object which is an instance of 
+	  Throwable or one of its sub classes.
+
+	- For each runtime error one predefined exception class is mapped 
+	
+	- For example:
+		1. For / by zero			-> ArithmeticException	
+		2. For wrong array index	-> ArrayIndexOutOfBoundsException
+		3. For number formating		-> NumberFormatException
+		4. For wrong class casting  -> ClassCastException
+		5. For null operations		-> NullPointerException
+		--------
+		--------
+		--------
+2. What will happen when an exception is occured?
+	- the program execution is terminated abnormally
+	- abnormally means
+		  the statements placed after exception causing statement are not executed
+		  the statements placed before exception causing statement are executed
+3. Why exception?
+	- An exception is used for terminating the program abnormally
+	  because of wrogn values or wrong logic or wrong resources
+4. When will excepiton occure?
+	- An exception will occure due to logical mistakes 
+	occured in the program execution because of 
+		1. wrong value or 
+		2. wrong logic or 
+		3. missing resource
+5. Who will throw exception?
+	- JVM throws exception because of logical mistakes occured in the program
+6. What does JVM do when an exception occured in the program?
+	- when a runtime error is occurred in program,
+	  internally JVM finds the mapped exception class of this runtime error
+	  creates this exception class object and throws it for terminatinng 
+	  the program execution.
+7. How can we solve an exception?
+	- An exception is solved only  
+		1. by paasing correct value or 
+		2. by changing logic or 
+		3. by making missing resouces available
+8. Devlop a program to raise an exception in the program,
+   and solve that exception by passing correct values?
+*/
+class  Test01 {
+	
+	public static void main(String[] args) {
+		System.out.println("main start");
+		//System.out.println(10/0); //exception causing statement
+		System.out.println(10/2); //value is changed, exception is sovled
+		System.out.println("main end");
+
+	}
+}
