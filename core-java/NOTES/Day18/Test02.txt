@@ -1,0 +1,33 @@
+/*
+9. Why exception?
+	- An exception is meant for "terminating a program" abnormally
+      when wrong values are passed or wrong logic is developed
+
+	- because of wrong values or wrong logic 
+	  we will get wrong result, so program must be 
+	  terminated abnormally
+
+	- for terminating program abnormally
+	  we will use exception
+
+10. How can we sovle exception and continue program execution normally?
+	- by correcting inputs (or) 
+	- by changing logic accordingly
+   
+*/
+class Test02 {
+	public static void main(String[] args) {
+		System.out.println("main start");
+
+		int res1 = 10/0;		//wrong value, here program must be terminated
+		//int b   = res1 + 20;	//if not, here wrong result is generated 
+
+		int res2 = 10/2;			//value is changed, 
+		int b   = res2 + 20;		//here corrected result is generated 
+
+		System.out.println("res: "+ res2);
+		System.out.println("b  : "+ b);
+
+		System.out.println("main end");
+	}
+}

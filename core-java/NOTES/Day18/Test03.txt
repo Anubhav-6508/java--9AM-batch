@@ -1,0 +1,56 @@
+/*
+11. Develop a program to
+	- Read numbers from end-user from command line 
+	- divide them and display result
+
+*/
+class Test03 {
+	public static void main(String[] args) {
+
+		int a = Integer.parseInt(args[0]);
+		int b = Integer.parseInt(args[1]);
+		int c = a/b ;
+		System.out.println("Result: "+ c);
+
+	}
+}
+/*
+Execution test cases and exceptions
+====================================
+
+>javac Addition.java
+
+>java Division 10 2
+  Result: 5
+
+>java Division 
+Exception in thread "main" java.lang.ArraIndexOutOfBoundsExcepiton: index 0
+	at Test03.main(Test03.java: 8)
+
+>java Division 10 
+Exception in thread "main" java.lang.ArraIndexOutOfBoundsExcepiton: index 1
+	at Test03.main(Test03.java: 9)
+
+>java Division 10 a
+Exception in thread "main" java.lang.NumberFormatExcepiton: For the input "a"
+	at Test03.main(Test03.java: 9)
+
+>java Division 10 0
+Exception in thread "main" java.lang.ArithmeticExcepiton: / by zero
+	at Test03.main(Test03.java: 10)
+
+
+Q) Are above exception messages printed by JVM understnadable to end-user?
+	- Nooooooooo
+
+Q) Can he solve the above exception by himself without taking developer help?
+	- Nooooooooo
+
+Q) What is the solution?
+	- Print user undestandable English message (not the above Java English message)
+
+Q) How?
+	- We must add exception handling code
+	  around exception causing statements
+
+*/

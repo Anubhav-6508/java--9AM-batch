@@ -1,0 +1,75 @@
+           Interface:
+	interface is contract or rules
+    interface what is does not how
+	{
+		1. public  to access to pk
+		2. protected  to another class
+		3. default  to same file/class
+		4. private to same class
+	}
+	
+	
+	
+interface i1{
+  public void m1(); // what 
+}
+class A implements i1{  // 
+   public void m1(){
+   
+   }
+}
+		  
+		  
+up    -> snake move up
+down  -> snake move down	  
+left  -> snake move left	  
+right -> snake move right
+
+client --> what to does
+
+interface Sgame{
+	void up(); // what 
+	void down();
+	void left();
+	void right();
+}
+
+how many types :-
+Functional interface
+marker interface
+interface:
+
+java8 :
+
+1. default 
+2. private
+3. static 
+
+interface sat{
+  void _2g();
+  void _3g();
+  void _4g();
+  default void _5g(){}  // doesn't give 
+            // contract
+}
+class Jio imp sat{  // this that they can 5G
+// all four method 
+
+}
+class Air  imp sat{
+// all four method 
+}
+class BSNL imp sat{
+  override _5g method/ service 
+
+}
+
+
+
+
+
+
+
+
+	  
+		  

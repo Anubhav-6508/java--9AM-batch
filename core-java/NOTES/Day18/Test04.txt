@@ -1,0 +1,111 @@
+/*
+12. What is exception handling?
+    - The process of 'catching or reporting' an exception
+	  is called exception handling
+
+13. Why exception handling?
+	- An EH is meant for stop terminating program abnormally
+	  and for excuting alternative logic for this exception 
+		1. either for printing user understandable message to pass correct values
+		2. or executing same logic with diff inputs
+		3. or executing different logic
+
+14. How can we handle exception?
+	- exceptin handling means 'catching or reporting'
+	- hence we can handle exception by using 
+		1. try, catch		-> for catching exception and stop terminating abnormally
+		2. throws keyword	-> for reporting this exception this method caller
+
+15. try/catch syntax for catching an exception
+		--
+		--	normal logic, not causing exeptions 
+		--
+		--
+		try {
+			----
+			----	exception causing and their
+			----	dependent statements
+			----
+		}
+		catch(Exception1 e) {
+			--		exception1 handling statements
+			--		means either user understandable statement
+			--      or alternative logic
+			--
+		}
+		catch(Exceptin2 e){
+			--		exception2 handling logic
+			--
+			--
+			--
+		}
+		---
+		---	rest of the statements to be executed
+		--- after exception cauthing
+		---
+
+- Below program show catching diff exceptions
+  and printing user undestandable messages
+  to pass correct values to sovle exceptions
+*/
+class Test04 {
+	public static void main(String[] args) {
+		try{
+			
+			int a = Integer.parseInt(args[0]);
+			int b = Integer.parseInt(args[1]);
+			int c = a/b;
+			System.out.println("Result: "+ c);
+
+		}catch(ArrayIndexOutOfBoundsException e) {
+			System.out.println("Error: Pass two integers as");
+			System.out.println(" java Test04 10 2");
+
+		}catch(NumberFormatException e) {
+			System.out.println("Error: Pass only integers ");
+
+		}catch(ArithmeticException e) {
+			System.out.println("Error: Do not pass ZERO as second value");
+		
+		}
+
+	}
+}
+
+/*
+>javac Test04.java
+
+>java Test04
+Error: Pass two integers as
+ java Test04 10 2
+
+>java Test04 10
+Error: Pass two integers as
+ java Test04 10 2
+
+>java Test04 10 a
+Error: Pass only integers
+
+>java Test04 10 0
+Error: Do not pass ZERO as second value
+
+>java Test04 10 2
+Result: 5
+
+Q) by above exception messages can user correct the values
+   by himself without developer help?
+   	- Yessssssss
+
+Q) By adding exception handling code to the program
+   can program talk to end-user?
+   	- Yesss
+
+Q) Which code gives life to the program to talk to end-user behalf of developer?
+	- Exception handling code try/catch
+ 
+Q) Can exception handling sovle exception?
+	- Nooooooooooo
+	- it can only stop abnormal termination
+	- and can print user understandbel message to solve this exception
+	- to sovle any exceptin we must either change values or change logic
+*/
