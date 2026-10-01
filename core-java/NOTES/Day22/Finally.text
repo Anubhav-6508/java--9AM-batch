@@ -1,0 +1,33 @@
+Finally
+---------------
+1. even the Exception occur or not Finally 
+   block will excuted.
+   
+2.use case:
+# closing the file. 
+# Resource Clean up.
+
+
+-->  JDH
+--> stores only one type of data 
+--> whenever exception is rise we didn't 
+    handle that exception the code terminated 
+	from there go back to method caller
+	before going method it check finally
+	is there not  if it store the 
+	exception in JDH (java Default Handling)
+	it will excute Finally block
+	them it take to method what JDH has store 
+	data .
+
+3. it what  case finally block not excute.
+--> explore ..... without Chatgpt
+
+
+
+
+
+
+
+
+
