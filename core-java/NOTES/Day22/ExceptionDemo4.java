@@ -9,13 +9,22 @@ void main(){
 		a=sc.nextInt();
 		IO.print("Enter Val2: ");
 		 b=sc.nextInt();
+		/*  if(b==0){
+	    	System.exit(0);
+		} */
 		c=a/b;
+			
 		IO.println(c);
+		for(;;){}
+		
+		
+	
 	}catch(ArithmeticException e){
 		e.printStackTrace();
 		try{
 			IO.print("Enter once again Val2: ");
 			b=sc.nextInt();
+			
 			c=a/b;
 		}catch(ArithmeticException er){
 			er.printStackTrace();
@@ -26,6 +35,10 @@ void main(){
 	}/* catch(Exception e){
 		IO.println(e.getMessage());
 	} */
+	
+	finally{
+		IO.println("I am in Finally...");
+	}
 }
 
 
