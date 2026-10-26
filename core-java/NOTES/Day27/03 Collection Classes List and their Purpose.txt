@@ -1,0 +1,171 @@
+			 		
+================= Collections Framework ======================
+Core interfaces(10)		Implementation classes(18)
+===============			=============================
+
+Collection<E>										            
+	Set<E>										         
+				HashSet<E>						                
+				LinkedHashSet<E>					
+				EnumSet<E extends Enum>					
+											    
+	  SortedSet<E>									
+	    NavigableSet<E>								
+		   		TreeSet<E>						                                      
+											                        
+	List<E>										             
+				Vector<E>						                 
+					Stack<E>
+				ArrayList<E>
+				LinkedList<E>
+				Stack<E>
+	
+	Queue<E>			
+				PriorityQueue<E>
+	
+	  Deque<E>	
+				ArrayDeque<E>
+		
+
+Map<K,V>                                                      
+				Hashtable<K, V>                       
+				Properties                    
+				HashMap<K, V>                                 
+				LinkedHashMap<K, V>                                   
+				EnumMap<K extends Enum, V>    
+				WeakHashMap<K, V>                             
+				IndentityHashMap<K, V>                        
+		                                              
+    SortedMap<K,V>                        
+        NavigableMap<K,V>                     
+				TreeMap<K,V>                  
+                                                             
+=====================================================================================
+All the below 10 collection classes are used for 
+storing objects in array format in different orders
+=================================================================================
+	1) Vector<E> (1.0)
+			is used for storing objects with thread safety
+			in multi-threaded environment applications
+	
+	2) ArrayList<E> (1.2)			
+			is used for storing objects without thread safety
+			in single-threaded environment applications
+			and in method local operations
+		
+	3) LinkedList<E>(1.2)			
+			is used when more operations are inserting and removing objects
+			and if we want retrieve objects sequentially only.
+	4) Stack<E>(1.0)
+			is used for storing objects in Insertion order
+			but want to retrieve objects in LIFO 
+//========================			
+			
+	5) HashSet<E> (1.2)
+			is used for storing only unique objects
+			in those objects hash code order
+
+	6) LinkedHashSet<E>(1.4)
+			is used for storing only unique objects 
+			in insertion order		
+	
+	7) TreeSet<E>(1.2)
+			is used for storing objects 
+			in sorting order [ASC or DESC]					
+	
+	8) EnumSet<E extends Enum>(1.5)
+			is used for storing only 
+			"Named constants" of a particular enum 
+//========================	
+	9) PriorityQueue<E>(1.5)
+			is used for storing and retrieving objects in FIFO manner
+			
+	10) ArrayDeque<E> (1.5)
+			it is same as PriorityQueue but supports double end insertion and retrieving
+			Note: it can also be used as Stack LIFO manner
+			Note: Java 5v onwards if we need to use stack, 
+			      we must use ArrayDeque
+			      but not regular Stack class		
+
+=====================================================================================
+Below 8 collection classes are used for storing objects 
+in table format in (key, value) pair format in different order
+=====================================================================================
+
+	1) Hashtable<K,V> (1.0)
+			is used for storing entries with thread safety
+			in multi-threaded environment applications
+ 
+	2) HashMap<K,V> (1.2)			
+			is used for storing only unique entries without thread safety
+			in single-threaded environment applications
+			and in method local operations. It stores 
+			enties on key object's hash code order 
+
+	3) LinkedHashMap<K.V>(1.4)
+			is used for storing only unique entries 
+			in insertion order		
+			
+	4) TreeMap<K,V>(1.2)
+			is used for storing entries 
+			in keys object's sorting order [ASC or DESC]					
+			
+	5) EnumMap<K extends Enum, V>(1.5)
+			is used for storing only "Named constants" of a particular enum 
+			as keys where as values can be any type of object
+			
+	6) WeakHashMap<K,V>(1.2)
+			is used for storing keys with weak references
+		
+	7) IndentityHashMap<K,V> (1.4)				
+			is used for storing keys with 
+			their reference wise hash code
+			
+	8) Properties (1.0)
+			is used for storing entries 
+			permanently in a file as text data
+			
+
+
+
+
+
+
+
+
+
+
+
+
+			
+		
+		
+				
+				
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			
+			
+			
+			
+			 
+			
