@@ -1,0 +1,67 @@
+
+
+--------------------------------------------------------------------------------
+PROBLEM 1: Movie Ticket Booking Queue
+--------------------------------------------------------------------------------
+
+Scenario:
+A cinema hall manages its on-counter ticket booking line using an in-memory queue.
+Customers stand in a single file line and are served strictly in the order they
+arrive (First-In, First-Out).
+
+Customer Node Attributes:
+- customerId      : Integer (Unique Identifier)
+- customerName    : String
+- ticketsBooked   : Integer
+- next            : Node reference to the next customer in line
+
+Operations Required:
+1. addCustomer(id, name, tickets)
+   - Add a customer to the back of the queue (tail insertion).
+2. serveCustomer()
+   - Serve and remove the customer standing at the front of the queue (head deletion).
+3. cancelBooking(customerId)
+   - Locate and remove a customer who leaves the queue before being served.
+   - Re-link the remaining customers without breaking the chain.
+4. displayQueue()
+   - Print all customers in line from front (counter) to back.
+5. isQueueEmpty()
+   - Return true if no customers are waiting, false otherwise.
+
+
+
+
+--------------------------------------------------------------------------------
+PROBLEM 2: E-commerce Order Priority Dispatcher 
+--------------------------------------------------------------------------------
+
+Scenario:
+An e-commerce fulfillment warehouse processes customer shipments. Normal orders
+wait in sequence, but premium members can upgrade an existing pending order to
+"Priority", which requires moving it immediately to the front of the processing line.
+Additionally, dispatchers and auditors need to inspect orders in both chronological
+and reverse orders.
+
+Order Node Attributes:
+- orderId         : Integer (Unique Identifier)
+- customerName    : String
+- orderAmount     : Double
+- orderStatus     : String ("Pending", "Priority", "Dispatched")
+- prev            : Node reference to the preceding order
+- next            : Node reference to the subsequent order
+
+Operations Required:
+1. addOrder(id, name, amount)
+   - Append a new standard order to the end of the order chain.
+2. upgradeToPriority(orderId)
+   - Locate the order by ID.
+   - Unlink/detach the existing node from its current position in O(1) time
+     (using node.prev and node.next) and insert it at the head.
+   - Challenge: Do not delete and create a new Node object; rewire the pointers.
+3. cancelOrder(orderId)
+   - Remove an order from the chain by adjusting the adjacent nodes' links.
+4. displayForward()
+   - Print all orders from head to tail (Oldest / Priority first).
+5. displayReverse()
+   - Print all orders from tail to head (Most recent first) using prev pointers
+     without creating auxiliary collections or stacks.
