@@ -1,0 +1,138 @@
+//TS Sorting algorithm has two logics
+	//1. comparing	logic-> developer
+	//2. swapping	logic -> SUN
+
+	//1. comparing	logic -> developer
+		// by implementing Comparable interface method compareTo()
+		// in the same adding object class	
+		//   1) return -ve to tell smaller object
+		//   2) return +ve to tell bigger object
+		//   3) return 0 to tell duplicate object
+	
+	//2. swapping	logic -> SUN
+		//1) if compareTo() returns -ve -> CO is stored LEFT to TS ele
+		//2) if compareTo() returns +ve -> CO is stored RIGHT to TS ele
+		//3) if compareTo() returns 0 	-> CO is not stored
+
+//TS does not have default sorting order
+//TS default sorting order is not Ascending order
+
+//TS sort elements according to the natural sorting order 
+//given in adding object class Comparable interface compareTo(-)
+
+//In compareTo() method we can place below 5 cases logic
+
+//if we place CO - AO --> objects are stored in Ascending order
+//if we place AO - CO --> objects are stored in Descending order
+//if we place +ve num --> objects are stored in Insertion order including dups
+//if we place -ve num --> objects are stored in Reverse Insertion order including dups
+//if we place 0       --> only first object is stored
+
+
+Given:
+//TSwithAObjects.java
+import java.util.*;
+class  TSwithAObjects{
+	public static void main(String[] args) {
+		TreeSet<A> ts = new TreeSet<A>();
+		ts.add( new A(1) );
+		ts.add( new A(3) );
+		ts.add( new A(1) );
+		ts.add( new A(2) );
+
+		A a5 = new A(4);
+		ts.add(a5);
+		ts.add(a5);
+
+		System.out.println("ts elements: "+ts);
+	}
+}
+
+//A.java
+class A implements Comparable {
+	private int x;
+	A(int x){
+		this.x = x;
+	}
+	public String toString(){
+		return "A("+x+")";
+	}
+	public int compareTo(Object obj) {
+		//insert code here
+	}
+}
+
+Q) In below cases, identify how many objects are added to TS, and in which order?
+
+Case #1: return directly ZERO, i.e; 
+		insert "return 0;" in compareTo() method
+Status:
+Output:
+
+Case #2: return directly one +ve value, i.e; "return 5;"
+Status:
+Output:
+
+Case #3: return directly one -ve value,  i.e;"return -5;"
+Status:
+Output:
+
+Case #4: return CO - AO state(value) i.e; return this.x-a.x;
+	as below, insert below code in compareTo() method
+		return this.x - a.x;
+
+Status:
+Ouput:
+
+Case #5: return AO - CO state  i.e; return a.x-this.x;
+	as below, insert below code in compareTo() method
+		return a.x - this.x;
+
+Status:
+Ouput:
+
+
+
+
+
+Cas #1: A) All elements are added and stored in insertion order, including duplicates.
+Output: [A(1), A(3), A(1), A(2)]
+Cas #2: A) All elements are added and stored in reverse insertion order, including duplicates.
+Output: [A(2), A(1), A(3), A(1)]
+Cas #3: A) only first added element is stored
+Output: [A(1)]
+
+	As per project we must not return 0, +ve or -ve number directly
+	we must generate them by substracting one object state from 
+	another object state, then only we can store elements in Asc or Desc order 
+	by avoiding duplicates.
+
+Cas #4: A) All elements are stored in AO, excluding duplicates
+Output: [A(1), A(2), A(3)]
+
+Cas #5: A) All elements are stored in DO, excluding duplicates
+Output: [A(3), A(2), A(1)]
+
+
+//Q) How many ways we can develop custom comparator?
+//Q) What are different ways we provide implementation to comparator interface?
+	/**
+	 * We can provide implementation to Comparator interface in 4 ways
+	 *	1) by using explicit outer class
+	 *      2) by using Anonymous inner class
+	 *      3) by using Lambda expression
+	 *      4) by using Method reference
+	 */ 
+
+Case #1: Develop custom comparator to store B class objects 
+	 in ASC order based on property Y value by using explicit outer class approach
+
+Case #2: Develop custom comparator to store B class objects 
+	 in Descending order based on property Y value by using Anonymous inner class
+
+Case #2: Develop custom comparator to store B class objects 
+	 in Ascending order based on property Y value by using LE
+
+
+
+	 

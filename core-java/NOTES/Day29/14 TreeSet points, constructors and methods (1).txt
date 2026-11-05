@@ -1,0 +1,56 @@
+About TreeSet<E> points
+============================
+01) The class TreeSet is a SortedSet type collection.
+	It is an Collections Framework collection defined 
+	in Java 1.2v as an implementation of SortedSet interface. 
+	In Java 6v it is made as an implementation of NavigableSet interface,
+	which is a sub interface of SortedSet interface.
+
+	If we want to store objects in sorting order, 
+	we must choose TreeSet collection. This sorting order 
+	can be Ascending order or can be Descending order
+	depending on the objects we are adding.
+	
+02) It is not a synchronized collection, because all its methods
+	are not declared as synchronized.
+
+03) It is an order collection, because it stores objects 
+	in sorting order.		
+
+04) The implemented data structure is 
+	"Red-Black tree backed by TreeMap instance"
+
+05) Its default capacity is 0 & 
+	    incremental capacity is 1
+	
+06) It allows us to store only
+	homogeneous Comparable 
+	unique objects 
+	
+07) It does not allow us to store null.
+	Note: upto Java 6v we are allowed to store solo null
+	but from Java 7v onwards we are not allowed to store even solo null, TS will throw NPE.
+	
+08) It maintains objects in sorting order, 
+	the default sorting order is the adding object
+	default natural sorting order. 
+
+09) It allows us to retrieve objects only sequential. 
+	Note: We can not retrieve objects randomly 	
+	from all Set collections, because they do not have index.
+
+10) It internally calls either Comparable.compareTo() method 
+					(or) Comprarator.compare() method
+	to be executed from our class in adding, seraching and 
+	removing operations.
+
+TreeSet<> class constructors
+============================
+	1. public TreeSet()
+	2. public TreeSet(Collection<? extends E> c)
+	3. public TreeSet(SortedSet<E> s)
+	4. public TreeSet(Comparator<? super E> comparator)
+
+
+
+

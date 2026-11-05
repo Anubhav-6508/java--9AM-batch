@@ -1,0 +1,74 @@
+HashSet<E> class points 
+=========================================================================
+	1) The HashSet<E> is a Collections Framework collection. 
+		It is available from Java 1.2v. 
+		It is an implementation of Set<E> interface.
+		
+		When we need to store only unique objects (or)
+		when we need to stop duplicates, then we must choose HashSet<E>.
+		
+		HashSet does not maintain insertion order and index
+		It stores objects in their hash code based order. 
+			 
+	2) It is not synchronized means not thread safe object.
+	
+	3) It is an unordered collection -> does not maintain Insertion Order and index.
+	
+	4) Its implemented data structure is hash table backed by HashMap instance
+	
+	5) Its default capacity is 16, 
+		incremental capacity is double (or) +1
+		load factor is 0.75 or 75% 
+	
+	6) It allows us to store only 3 types of objects 
+		Homogeneous, Heterogeneous and Unique
+		does not allow duplicates, by default stops reference wise duplicates only.
+		If we want stop data wise duplicates, we must override both 
+		hashCode() and equals() methods in our class, else data wise 
+		duplicate objects are stored in Set.  	 
+	
+	7) It allows us to store null, only one null.
+	
+	8) It does not preserves Insertion Order and also no index
+	
+	9) It allows us to retrieve elements only sequential order 
+	
+	10) In adding, searching and removing operations internally 
+		hashCode(), == operator and equals() methods are is called
+		and those methods are executed from adding object class. 
+		
+		If those methods are not overridden in adding object class,
+		those methods are executed from java.lang.Object class, 
+		then this adding object is compared with the elements 
+		available in collection by using their references
+		then data wise duplicate objects are not stopped and 
+		the existing object are not found in collection.
+	 
+HashSet<E> class constructors
+========================================================================
+  HashSet<E> class has 4 constructors
+	1) public HashSet() 
+	2) public HashSet(Collection<? extends e> c) 
+	3) public HashSet(int initialCapacity) 
+	4) public HashSet(int initialCapacity, float loadFactor) 
+
+
+HashSet<E> class methods (34)
+=========================================================================
+
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+ 

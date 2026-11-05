@@ -1,0 +1,69 @@
+LinkedHashSet<E> class points 
+=========================================================================
+	1) The LinkedHashSet<E> is a Collections Framework collection. 
+		It is available from Java 1.4v. It is a sub class of HashSet<E> class.
+		
+		When we need to store only unique objects in insertion order
+		then we must choose LinkedHashSet<E>.
+			 
+	2) It is not synchronized means not thread safe object.
+	
+	3) It is ordered collection -> maintain Insertion Order and without index.
+	
+	4) Its implemented data structure is 
+		hash table + doubly linked list backed by LinkedHashMap instance
+	
+	5) Its default capacity is 16, 
+		incremental capacity is double (or) +1
+		load factor is 0.75 or 75% 
+	
+	6) It allows us to store only 3 types of objects 
+		Homogeneous, Heterogeneous and Unique.
+		It does not allow duplicates, by default it can stop reference wise duplicates only
+		If we want stop data wise duplicates, we must override both 
+		hashCode() and equals() methods in our class, else data wise 
+		duplicate objects are stored in collection  	 
+	
+	7) It allows us to store null, only null.
+	
+	8) It  preserves Insertion Order and without index
+	
+	9) It allows us to retrieve elements only sequentially 
+	
+	10) In adding, searching and removing operations internally 
+		hashCode(), == operator and equals() methods are is called
+		and those  executed from arg object class. 
+		
+		If those methods not overridden in arg object class
+		those methods executed from java.lang.Object class, 
+		then this arg object is compared with collection elements 
+		by using their references.
+	 
+LinkedHashSet<E> class constructors
+========================================================================
+  LinkedHashSet<E> class has 3 constructors
+	1) public LinkedHashSet() 
+	2) public LinkedHashSet(Collection<? extends e> c) 
+	3) public LinkedHashSet(int initialCapacity) 
+	4) public LinkedHashSet(int initialCapacity, float loadFactor) 
+
+
+LinkedHashSet<E> class methods (34 )
+=========================================================================
+
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+ 
