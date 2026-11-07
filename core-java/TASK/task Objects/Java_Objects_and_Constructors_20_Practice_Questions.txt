@@ -1,0 +1,390 @@
+JAVA CODING PRACTICE
+TOPIC: OBJECTS AND CONSTRUCTORS
+TOTAL QUESTIONS: 20
+LEVEL: BEGINNER TO ADVANCED
+
+============================================================
+BEGINNER LEVEL - QUESTIONS 1 TO 5
+============================================================
+
+QUESTION 1: STUDENT INFORMATION
+
+Create a Student class with:
+    rollNo
+    name
+    marks
+
+Requirements:
+1. Create a parameterized constructor to initialize all variables.
+2. Create 3 Student objects.
+3. Assign different information to each object.
+4. Display all student details.
+
+
+QUESTION 2: EMPLOYEE SALARY
+
+Create an Employee class with:
+    employeeId
+    employeeName
+    salary
+
+Requirements:
+1. Create a constructor to initialize employee details.
+2. Create 4 Employee objects.
+3. Increase the salary of the second employee by 5000.
+4. Display all employee details.
+
+
+QUESTION 3: MOBILE SHOP
+
+Create a Mobile class with:
+    brand
+    model
+    price
+
+Requirements:
+1. Create 5 Mobile objects.
+2. Initialize them using constructors.
+3. Display all mobile details.
+4. Find the mobile having the highest price.
+
+
+QUESTION 4: BANK ACCOUNT
+
+Create a BankAccount class with:
+    accountNumber
+    accountHolder
+    balance
+
+Requirements:
+1. Create 3 bank account objects.
+2. Initialize each account using a constructor.
+3. Deposit Rs. 5,000 into the first account.
+4. Withdraw Rs. 2,000 from the third account.
+5. Display the final balances.
+
+
+QUESTION 5: BOOK MANAGEMENT
+
+Create a Book class with:
+    bookId
+    bookName
+    author
+    price
+
+Requirements:
+1. Create 4 Book objects.
+2. Initialize them using constructors.
+3. Display books whose price is greater than Rs. 500.
+
+
+============================================================
+INTERMEDIATE LEVEL - QUESTIONS 6 TO 12
+============================================================
+
+QUESTION 6: CONSTRUCTOR OVERLOADING
+
+Create a Product class with:
+    productId
+    productName
+    price
+
+Requirements:
+1. Create a default constructor.
+2. Create a constructor accepting productId and productName.
+3. Create a constructor accepting all three variables.
+4. Create 5 objects using different constructors.
+
+
+QUESTION 7: COPY CONSTRUCTOR
+
+Create a Car class with:
+    carNumber
+    carName
+    price
+
+Requirements:
+1. Create a parameterized constructor.
+2. Create a copy constructor.
+3. Create one object using the parameterized constructor.
+4. Create another two objects by copying the first object.
+5. Change the price of the second object.
+6. Display all three objects.
+
+
+QUESTION 8: CONSTRUCTOR AND OBJECT COUNTER
+
+Create a Laptop class with:
+    brand
+    price
+    static variable count
+
+Requirements:
+1. Increment count whenever a new object is created.
+2. Create 5 Laptop objects.
+3. Display the total number of objects created.
+
+
+QUESTION 9: LIBRARY MANAGEMENT
+
+Create two classes: Book and Library.
+
+Book class:
+    bookId
+    bookName
+    price
+
+Library class:
+    libraryName
+    location
+
+Requirements:
+1. Create 3 Library objects.
+2. Each library should maintain 3 Book objects.
+3. Display all libraries and their books.
+
+
+QUESTION 10: CONSTRUCTOR WITH OBJECT AS PARAMETER
+
+Create a Department class with:
+    departmentId
+    departmentName
+
+Create an Employee class with:
+    employeeId
+    employeeName
+    Department object
+
+Requirements:
+1. Pass a Department object into the Employee constructor.
+2. Create 4 Employee objects.
+3. At least two employees should belong to the same Department object.
+4. Display employee and department details.
+
+
+QUESTION 11: MULTIPLE CONSTRUCTORS AND OBJECT INITIALIZATION
+
+Create a Student class with:
+    id
+    name
+    course
+    fee
+
+Requirements:
+1. Create default and parameterized constructors.
+2. Create 6 objects using different constructors.
+3. Initialize missing values with meaningful defaults.
+4. Display all objects.
+
+
+QUESTION 12: OBJECT REFERENCE ASSIGNMENT
+
+Create an Account class with:
+    accountHolder
+    balance
+
+Requirements:
+1. Create two Account objects.
+2. Assign the first object's reference to a third reference variable.
+3. Change the balance using the third reference.
+4. Display the balance using both references.
+5. Explain why both references show the same balance.
+
+
+============================================================
+ADVANCED LEVEL - QUESTIONS 13 TO 20
+============================================================
+
+QUESTION 13: CONSTRUCTOR CHAINING WITH MULTIPLE OBJECTS
+
+Create a Vehicle class with:
+    vehicleNumber
+    vehicleName
+    price
+
+Requirements:
+1. Create a default constructor.
+2. Create a two-parameter constructor.
+3. Create a three-parameter constructor.
+4. Use this() for constructor chaining.
+5. Create 5 objects using different constructors.
+
+
+QUESTION 14: SHOPPING CART
+
+Create two classes: Product and ShoppingCart.
+
+Product class:
+    productId
+    productName
+    price
+
+ShoppingCart class:
+    cartId
+    customerName
+    Product array
+
+Requirements:
+1. Pass an array of Product objects through the ShoppingCart constructor.
+2. Create 3 ShoppingCart objects.
+3. Each cart should contain different products.
+4. Calculate the total price of each cart.
+
+
+QUESTION 15: HOSPITAL MANAGEMENT
+
+Create two classes: Doctor and Patient.
+
+Doctor class:
+    doctorId
+    doctorName
+    specialization
+
+Patient class:
+    patientId
+    patientName
+    Doctor object
+
+Requirements:
+1. Create 3 Doctor objects.
+2. Create 6 Patient objects.
+3. Assign different doctors to different patients.
+4. Display patient details along with their doctors.
+
+
+QUESTION 16: CONSTRUCTOR AND MUTABLE OBJECT
+
+Create two classes: Address and Person.
+
+Address class:
+    city
+    state
+
+Person class:
+    name
+    Address object
+
+Requirements:
+1. Create an Address object.
+2. Pass it to the Person constructor.
+3. Create two Person objects using the same Address object.
+4. Change the city through one Person object.
+5. Observe the changes through the other Person object.
+
+
+QUESTION 17: OBJECT ARRAY WITH CONSTRUCTOR
+
+Create a Movie class with:
+    movieId
+    movieName
+    rating
+
+Requirements:
+1. Create an array capable of storing 10 Movie references.
+2. Initialize all 10 positions with Movie objects.
+3. Find the highest-rated movie.
+4. Display movies having a rating greater than 8.
+
+
+QUESTION 18: CONSTRUCTOR EXECUTION AND OBJECT RELATIONSHIPS
+
+Create two classes: Department and Employee.
+
+Department class:
+    departmentId
+    departmentName
+
+Employee class:
+    employeeId
+    employeeName
+    Department object
+
+Requirements:
+1. Create 2 Department objects.
+2. Create 5 Employee objects.
+3. Assign employees to departments.
+4. Create another Employee object using an existing Employee object's
+   Department reference.
+5. Display all employee information.
+
+
+QUESTION 19: DEEP COPY VS SHALLOW COPY
+
+Create two classes: Address and Student.
+
+Address class:
+    city
+    pinCode
+
+Student class:
+    rollNo
+    name
+    Address object
+
+Requirements:
+1. Create a parameterized constructor.
+2. Create a copy constructor that performs shallow copying.
+3. Create another copy constructor or method that performs deep copying.
+4. Create original, shallow-copy and deep-copy objects.
+5. Change the original Address.
+6. Observe which objects are affected.
+
+
+QUESTION 20: REAL-WORLD INSTITUTE MANAGEMENT
+
+Create three classes: Course, Student and Institute.
+
+Course class:
+    courseId
+    courseName
+    duration
+
+Student class:
+    studentId
+    studentName
+    Course object
+
+Institute class:
+    instituteName
+    location
+    Student array
+
+Requirements:
+1. Create 3 Course objects.
+2. Create 10 Student objects.
+3. Assign students to different courses.
+4. Create 2 Institute objects.
+5. Each institute should contain different students.
+6. Display institute-wise student and course details.
+
+
+============================================================
+IMPORTANT CONCEPTS TO PRACTICE
+============================================================
+
+1. Object creation using new.
+2. Default and parameterized constructors.
+3. Constructor overloading.
+4. Constructor chaining using this().
+5. Copy constructors.
+6. Static object counters.
+7. Object references and reference assignment.
+8. Passing objects as constructor arguments.
+9. Arrays of objects.
+10. Shallow copy and deep copy.
+11. Association between objects.
+12. Multiple objects sharing the same reference.
+
+
+============================================================
+STUDENT INSTRUCTIONS
+============================================================
+
+1. Write a complete Java program for every question.
+2. Use separate classes wherever required.
+3. Do not use Collections or Stream API.
+4. Use constructors to initialize objects.
+5. Test each program with multiple objects and different values.
+6. Be prepared to explain object creation, constructor execution,
+   and object-reference behavior.
+7. Do not copy solutions. Understand the logic and implement it yourself.
