@@ -1,0 +1,23 @@
+Question 1: Sum of natural numbers
+Write a recursive method to calculate the sum of numbers from 1 to n.
+
+Question 2: Factorial using recursion
+Write a recursive method to calculate the factorial of a number.
+
+Question 3: Print a number and its square during backtracking
+Write a recursive method that accepts n
+
+Question 4: Check whether a number is palindrome
+Write a recursive method to check whether a number is a palindrome.
+
+
+Question 5: Generate all subsequences of a string
+ like "ABC": 
+ABC
+AB
+AC
+A
+BC
+B
+C
+(empty)
