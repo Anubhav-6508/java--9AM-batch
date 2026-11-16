@@ -1,0 +1,544 @@
+Explain HashSet/HashMap/Hashtable internals?
+	or 
+set.add()/map.put() method algorithm in HS/LHS/HM/LHM/Ht
+for storing unique objects or entries
+=========================================================
+By using hashCode(), "==" operator & equals() method
+   Set and Map stops duplicate objects
+
+1) The classes those contain the word "Hash" in their name, 
+     internally uses hashCode(), "==" operator & equals() methods 
+     for stopping duplicate objects, and also used for 
+     searching, retrieving & removing correct element from 
+     Set and Map based collections.   
+
+2) Inside put() method, 
+	- First hashCode() method is called
+	- Next "==" operator is used
+	- Finally equals() method is called
+	
+3) If the second object/key hash code is same as
+   already added object/key hash code, then 
+   == opertor and equals() method are used to find
+   this newly adding object/key unique or duplicate
+
+4) hashCode() method is used for storing the related objects
+     as one group by separating them from other group of objects, 
+     means same hash code objects as one group
+     other hash code objects as another group. 
+     
+     By creating same 'hash code' objects as one group 
+     the number of comparisons are decreased, execution becomes fast. 
+     Execution becomes fast because currently adding object 
+     is compared to only with its 'hash code' group of objects 
+     in this map, but not with all objects availabe in the Map.
+
+5) Further "==" operator is used for comparing 
+     the adding object with its hashCode objects 
+     using reference.
+
+6) Finally equals() method is used for comparing
+     the adding object with its hashcode objects
+     using state (if not overridden compares using reference).
+
+7)	For storing objects, HashMap internally uses 
+	"hash table" data structure.
+
+8)	the 'hash table'" internally uses another 
+	data structure called 'bucket' for storing 
+	the same hashcode objects as one group.
+
+9)	the bucket is a collection of elements whose hashcode is same. 
+	This bucket is also a collection object, it is a LinkedList.
+	From 1.8 onwards Binary Tree is also used. First linked list is created, 
+	if the number of object in this bucketreached 8 object
+	means THRESHOLD==8, then linked list is changed to binary tree,
+	for decreasing number comparisions.
+
+10) 	Bucket is used for storing same hash code objects as one group. 
+        So that comparing & searching will be fast because currently adding 
+	entry key is compared only with this key's hashcode group of keys. 
+
+11)	the new bucket is created only for every new hashcode object. 
+        Then this object will be added to this bucket directly without any comparisons.
+
+12)	if bucket is already available with this currently adding 	
+	entry's key hashcode, then put() method checks 
+	whether this entry is unique or duplicate by using 
+	"==" opearator and equals() method.
+
+13)	If "==" operator returns "true",
+		adding entry is duplicate on key reference, 
+		then key is not added, its mapped old value is 
+		replaced by this new value
+
+14)	If "==" operator returns false, 
+		adding entry is unique based on reference, but it
+		may be duplicate based on state. So, put() method will 
+		call equals() method for comparing entry by using its 
+		content.
+
+15)	If equals() method also retuns false, 
+		entry is added in the same bucket, 
+		means it is unique entry on data wise.
+	
+16)	If equals() method returns true,
+		adding entry is duplicate on key state wise, 
+		then key is not added, its mapped old value is 
+		replaced by this new value
+
+17) The hash table data structure is internally 
+       implemented by using Node class array object
+
+18) The bucket(single linked list with Node objects)
+	is created with given entry(key and value) and 
+	its reference is stored in the table(Node[] object) 
+	in its one of the locations.
+
+19) To find the location to store this entry's node object,
+	inside put() method, key object hash code is divided by
+	the HashMap capacity (Ex: key.hC()%16). 
+	This division's reminder value is nothing but 
+	the index number of the location for storing this entry.
+
+Check the attached diagram for undestanding:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Searching, retrieving, removing object from Set and Map
+map.contains(K), map.get(K), map.remove(K) methods algorithm
+===============================================================
+1.	get(), contains() and remove() methods also 
+	internally uses "hashCode()", "==" operator and equals() 
+	method for finding the bucket and 
+	for finding, retriving and removing the given argument's
+	matched element from this bucket.
+
+2.	First hashCode() method is called by using the argument 
+	object, If bucket is not found, with this object hash code 
+		> contains method returns false
+		> get() method returns null
+		> remove method returns false from Set
+					and returns null from Map
+
+3.	If bucket is found with this argument object hash code, 
+		- then "==" operator and "equals" method are used 
+		for finding the matched object in this bucket. 
+
+		- First the argument is compared with this bucket elements by using "==" operator
+			- If "==" operator returns true, 
+				> contains() method returns true
+				> get() method returns this matched element reference
+				> remove() method removes this matched key entry from this bucket 
+
+			- If "==" operator returns false, equals() method is called for comparing 
+			the argument object state with this bucket elements state	
+			
+			- equals() method is called by using "argument object" by passing bucket 
+			entries key 
+				- If equals method returns false, 
+					> contains method returns false
+					> get() method returns null
+					> remove method 
+					    returns false from Set and 
+					    returns null from Map
+
+				- If equals method returns true, 
+					> contains() method returns true
+					> get() method returns this matched key's 
+					  value object's reference
+					> remove() method removes this matched entry from this 
+					bucket and returns true from Set and returns this matched 
+					key's value object from Map
+
+Working with custom class objects: 
+adding and removing custom class objects from Set & Map 
+=====================================================
+Apply above add and remove methods algorithms and find out 
+how many Ex class objects are added and removed from LHS.
+
+hashCode() and equals() methods TestCases
+=================================
+From the below testcases, findout
+Q1) How many buckets are created and 
+Q2) How many objects are added and 
+Q3) How many objects are removed?
+
+Given:
+import java.util.*;
+class  ExCollection{
+	public static void main(String[] args) {
+
+		LinkedHashSet lhs = new LinkedHashSet();
+		
+		lhs.add( new Ex(5, 6) );
+		lhs.add( new Ex(5, 6) );
+
+			Ex e3 = new Ex(5, 6);
+			Ex e4 = new Ex(5, 6);
+			Ex e5 = new Ex(6, 5);
+			Ex e6 = new Ex(7, 8);
+			Ex e7 = e6;
+
+		lhs.add(e3);
+		lhs.add(e4);
+		lhs.add(e5);
+		lhs.add(e6);
+		lhs.add(e7);
+
+		System.out.println( "Size    : "+ lhs.size() );
+		System.out.println( "Elements: "+ lhs );
+		System.out.println();
+
+		System.out.println( "Ex(6, 5), is it removed: "+ 
+		lhs.remove( new Ex(6, 5) ) );
+		
+		System.out.println( "e7, is it removed: "+
+		lhs.remove( e7 ) );
+		
+		System.out.println( "Size    : "	+ lhs.size() );
+		System.out.println( "Elements: "+ lhs );
+		System.out.println();
+	}
+}
+
+Consider below Ex class, 
+class Ex {
+	private int x, y;
+	Ex(int x, int y){
+		this.x = x;
+		this.y = y;
+	}
+	public String toString(){
+		return "Ex("+x+", "+y+")";
+	}
+	
+	//insert hC() method
+	
+	//insert eq() method
+}
+
+Find output in below cases
+====================================
+Case #1:	both hashCode() and equals() 	
+		methods are not overridden in Ex class
+
+		Q1-A) buckets created: 
+		Q2-A) objects stored:
+		Q3-A) removed objects:
+
+Case #2:	only hashCode() method is overridden 
+		by returning directly 5;
+
+		Q1-A) 
+		Q2-A) 
+		Q3-A) 
+
+Case #3:	only equals() method is overridden 
+		by returning either true/false;
+
+		Q1-A) 
+		Q2-A) 
+		Q3-A) 
+
+Case #4:	hashCode() method is overridden 
+		by returning 5; also equals() method is 
+		overridden by returning true;
+		Q1-A) 
+		Q2-A) 
+		Q3-A) 
+
+Case #5:  in above case return false from equals() method
+		Q1-A) 
+		Q2-A) 
+		Q3-A) 
+
+Case #6: hashCode() method is overridden by returning x + y
+	        and equals() method is overridden by comparing 
+		x and y data
+		Q1-A) 
+		Q2-A) 
+		Q3-A) 
+
+
+
+Case #1 A): 
+6 buckets are created (all objects have diff ref)
+6 objects are added in different buckets
+1 object is removed i.e; e6 with e7
+
+Case #2 A):
+1 bucket is created (hashCode() returning same val 5)
+6 objects are added in the same bucket
+1 object is removed i.e; e6 with e7
+
+Case #3 A): 
+6 buckets are created(diff ref objects)
+6 objects are added in different buckets
+1 object is removed i.e; e6 with e7
+
+Case #4 A): 
+1 bucket is created (hashCode() returning same val 5)
+1 object is added i.e; first added object
+1st object is removed irrespective of reference and state
+
+Case #5 A):
+1 bucket is created
+6 objects are added in the same bucket
+1 object is remove i.e; e6 with e7
+
+Case #6 A):
+2 buckets are created
+Ex(5, 6) Ex(6, 5) Ex(7, 8) are added
+2 objects are removed, i.e; Ex(6, 5) Ex(7, 8)
+
+Q) How can we stop adding state wise duplicate objects ?
+A) To stop state wise duplicate objects, we must override
+	hashCode() and equals() methods in subclass 
+	-	for generating hashcode with
+		current state of the object, and 
+
+	-	for comparing currently adding object 
+		with collection elements using their state.
+
+Q) When should we override equals() and hashCode() methods 
+in our class?
+==============================================
+When we want store our class objects in Set or Map collections,
+we must override hashCode() and equals() methods 
+
+Q) What is the problem if we donot override 
+hashCode() and equals() methods?
+==============================================
+If we donot override hashCode() and equals() methods there is no CE or RE, 
+the problem is "data wise duplicate objects" are added into map,
+and also those objects are not found with new referenced objects 
+even though data is same.
+
+for stoping data wise duplicate objects and for finding objects
+with data, we must overrde hashCode() and equals() methods
+
+The contract in overridding equals and hashCode mehtods is:
+==================================================================
+	If equals() method returns true by comparing two objects,			
+	those two objects hashcode must be same.						
+
+Simple technique we must follow in overriding 
+hashCode() and equals() to satisfy above contract is:
+===========================================
+Use the property in equals() method that is used in hashCode()
+method impelementation. In equals() method we must use 
+hashCode() method used property plus more unique properties.
+
+Right procedure to override hashCode and equals methods:
+=============================================
+For high Performance: 
+ |->	Generate different hashcode for each object
+ |
+ |->	Hence at the time of adding, there is no comparison, 
+ |		object is directly added in different new bucket, 
+ |	
+ |->	at the time of searching and removing  
+ |		we will have only one comparison.
+ 
+ 
+But According to business:
+ |->	We must generate same hashcode for related objects, and 
+ |	different hashcode for unrelated objects of the same class.
+ |
+ |->	So that searching element is fast 
+ |	because of minimum comparisons will be there.
+
+According to business application: 
+	- From hashCode() method we must return the property, 
+		using which we can group objects and can 
+		differentiate them from another group of objects of 
+		same class.
+	
+	- In equals() method we must compare the properties, 
+		those are group identification property and the 
+		unique property using which one object is 
+		differentiated from another object in the same 
+		hashCode group.
+
+For example:
+	In Student class
+		- From hashCode() method we must return "course"
+		- In equals() method we must compare "course & sno"
+	
+	In Employee class
+		- From hashCode() method we must return "dept"
+		- In equals() method we must compare "dept & eno"
+
+	In BankAccount class
+		- From hashCode() method we must return "IFSC"
+		- In equals() method we must compare 
+			"IFSC & accType & accNum"
+
+
+Program #1:
+Write a program for adding Student objects to LHS collection, 
+and further search and remove the given student object for LHS collection.
+
+Note: 
+You must build Student class for storing its objects in the pattern 
+as per real world school "class room based" arrangement.
+
+That means Students objects should store on course wise groups 
+and should not allow two student objects those have same course and rollnum.
+
+So 
+From hashCode() method we must return course &
+In equals() method we must compare course and rollnum.
+
+Coding steps:
+==========
+Number of clases: 3
+	1. CourseMap class  
+	2. Student class
+	3. School class
+
+In CourseMap class 
+================
+    We must map course name with a number, because course name type is string, we can not return from  hashCode() method. So we must return its mapping number.
+
+	1. Create HashMap object with private static ref variable
+	2. Inside static{} initialize HashMap object with
+		coursename and its number entries
+	3. Define getCourseNum() method for retrieving given 
+	    course number.
+
+In Student class we must 
+	1. Create fields for storing students data
+	2. Create a param constructor for initializing
+	3. Override hashCode() and equals() methods
+	4. From hashCode() method we must return course num
+	5. In equals() method we must compare course & rollnum 
+	   
+In School class we must
+	1. Define main method
+	2. In main method Create LHS object
+	3. Create Student objects with unique & duplicate content
+	4. Add Student objects to LHS
+
+
+
+Program:
+Develop a project for adding Employee objects & further  searching & removing these objects from LHS collection.
+
+In this project we must develop two classes
+	1. Employee class
+	2. Company class
+
+In Employee class we must 
+	1. Create fields for storing employees data
+	2. Create a param constructor for initializing
+	3. Override hashCode() and equals() methods
+	4. From hashCode() method we must return dept num
+	5. In equals() method we must compare eno & dept name
+	6. Create a map object with dept name and its num for 
+	    returing dept num from hashCode() method.
+	   
+In comparny class we must
+	1. Create LHS object
+	2. Create Employee objects with duplicate content
+	3. Add Employee objects to LHS
+
+Coding:
+//Employee.java
+public class Employee{
+
+	private int		eno;
+	private String	ename;
+	private double	sal;
+	private String	dept;
+
+	private static HashMap<String, Integer> deptsMap = 
+						new HashMap<String, Integer>();
+	static{
+		deptsMap.put("Java", 1);
+		deptsMap.put(".NET", 2);
+		deptsMap.put("Oracle", 3);
+		deptsMap.put("PHP", 4);
+		deptsMap.put("Android", 5);
+		deptsMap.put("HADOOP", 6);
+	}
+
+	public Employee(int eno, String ename, 
+						double sal, String dept){
+	
+		this.eno		= eno;
+		this.ename	= ename;
+		this.sal		= sal;
+		this.dept		= dept;
+
+	}
+
+	@Override
+	public int hashCode(){
+		return deptsMap.get(this.dept);
+	}
+
+	@Override
+	public boolean equals(Object obj){
+	
+		if(obj instanceof Employee){
+			Employee e = (Employee) obj;
+			
+			return (this.eno == e.eno) &&
+					(this.dept.equals(e.dept));
+	
+		}
+	
+		return false;
+	}
+
+	@Override
+	public String toString(){
+		return "Employee("+
+				eno		+", "+
+				ename	+", "+
+				sal		+", "+
+				dept		+", "
+			    +")";
+	}
+}
+
+//Company.java
+import java.util.*;
+
+public class Company{
+	public static void main(String[] args){
+		LinkedHashSet<Employee> empSet = 
+				new LinkedHashSet<>();
+	
+		empSet.add( new Employee(101, "HB", 10000, "Java")  );
+		empSet.add( new Employee(101, "HB", 10000, "Java")  );
+		empSet.add( new Employee(102, "HB", 10000, "Java")  );
+		empSet.add( new Employee(101, "BB", 10000, "Oracle")  );
+		empSet.add( new Employee(102, "MB", 10000, "Oracle")  );
+	
+		System.out.println(lhs);
+	}
+}
+
+
+
+
+
+
+
+

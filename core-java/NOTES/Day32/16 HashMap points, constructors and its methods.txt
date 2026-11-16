@@ -1,0 +1,80 @@
+HashMap<K,V> class points 
+=========================================================================
+	1) The HashMap<K,V> is a Collections Framework collection. 
+		It is available from Java 1.2v. 
+		It is an implementation of Map<K,V> interface.
+		
+		-> When we want to store objects with mappings with unique keys 
+			in single thread application or in method local operation 
+			without worrying insertion order, we must choose HashMap<K, V>. 
+			
+			Internally HashMap<K,V> stores entries in keys hash code order 
+			that is returned by Object class hashCode() method either from 
+			currently adding key class or from java.lang.Object class. 
+			 
+	2) It is not synchronized means not thread safe object.
+	
+	3) It is unordered collection -> does not maintain Insertion Order.
+	
+	4) Its implemented data structure is hash table 
+	
+	5) Its default capacity is 16, 
+		incremental capacity is double (or) +1
+		load factor is 0.75 or 75% 
+	
+	6) It allows us to store 
+		as key 	-> only 3 types of objects[Homogeneous, Heterogeneous and Unique]
+		as value -> all 4 types of objects [Homogeneous, Heterogeneous, Unique and duplicate]
+		
+		HashMap<k,V> by default can stop only reference wise duplicates keys.
+		If we want stop data wise duplicates, we must override both 
+		hashCode() and equals() methods in our class, else data wise 
+		duplicate keys are stored in collection.  	 
+
+	7) It allows us to store null
+		as key 	-> one null
+		as value -> multiple nulls
+	
+	8) It does not preserve Insertion Order 
+	
+	9) It allows us to retrieve  
+		keys 	-> only sequential
+		values 	-> both random and sequential
+		 	
+	10) In adding, retrieving, searching, removing and replacing operations 
+		internally hashCode(), == operator and equals() methods are is called
+		and those methods are executed from adding and seraching key object class. 
+		
+		If those methods are not overridden in adding and seraching key object class
+		those methods are executed from java.lang.Object class, 
+		then this adding and seraching key object is compared with keys available in map
+		by using their references. Then data wise duplicate keys are stored
+	 
+HashMap<K,V> class constructors
+========================================================================
+  HashMap<K,V> class has 4 constructors
+	1) public HashMap() 
+	2) public HashMap(Map<? extends K, ? extends V> map) 
+	3) public HashMap(int initialCapacity) 
+	4) public HashMap(int initialCapacity, float loadFactor) 
+
+
+HashMap<K,V> class methods (27 )
+=========================================================================
+
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+ 

@@ -1,0 +1,138 @@
+Adding String and Integer objects to HS/LHS
+==========================================
+Note: In String class and in all wrapper classes 
+	  hashCode() and equals() methods are overridden
+=========================================
+Adding StringBuffer objects to HS/LHS
+==========================================
+Note: In StringBuffer class 
+	  hashCode() and equals() methods are not overridden
+=========================================
+Adding custom objects(clas A objects) to HS/LHS
+====================================
+Note: data wise duplicate objects are adding or not adding
+	  is depending on overriding and not overriding 
+	  hashCode() and equals() methods testcases 
+=========================================
+In the below test cases identify 
+	1) how many buckets are created and 
+	2) how many objects are stored and not stored
+=============================================
+Case #1: both hC() and eq() methods are not overridden
+
+Case #2: only hC() method is overridden
+		by retuning int value 5 directly
+
+Case #3: only eq() method is overridden
+		by returning true/false directly		
+
+Case #4: both hC() and eq() methods are overridden,
+		hC() is overridden by returning 5 directly
+		eq() is overridden by returning true directly
+
+Case #5: both hC() and eq() methods are overridden,
+		hC() is overridden by returning 5 directly
+		eq() is overridden by returning false directly
+
+Case #6: both hC() and eq() methods are overridden
+		by using objects data comparision
+
+hashCode() and equals() methods TestCases
+=================================
+//A.java
+class A{
+	private int x, y;
+	public A(int x, int y){
+		this.x = x;
+		this.y = y;
+	}
+	
+	public String toString(){
+		return "A("+x+", "+y+")";
+	}
+
+	public int hashCode(){
+		return x + y;
+	}
+
+	public boolean equals(Object obj){
+		if (obj instanceof A){		
+			A a = (A)obj;	
+			return (	
+					( this.x == a.x )
+						&&
+					( this.y == a.y ) 
+				   );	
+		}
+
+		return false;
+	}
+}
+
+//TestAddRemove2.java
+import java.util.*; 
+class TestAddRemove2{
+	public static void main(String[] args){
+		LinkedHashSet lhs = 
+			new LinkedHashSet();
+	
+		lhs.add( new A(2, 3) );	
+		lhs.add( new A(3, 4) );	
+		lhs.add( new A(2, 3) );	
+		lhs.add( new A(3, 2) );	
+		lhs.add( new A(1, 6) );	
+	
+		System.out.println("Original LHS");
+		System.out.println(lhs.size());
+		System.out.println(lhs);
+		
+		lhs.remove( new A(2, 3) );
+		System.out.println("\nElements after removing");
+		System.out.println(lhs.size);
+		System.out.println(lhs);
+	}
+}
+
+From the below testcases, findout
+Q1) How many objects are added and 
+Q2) How many buckets are created and 
+Q3) How many objects are removed?
+
+Find output in below cases
+====================================
+Case #1:	both hashCode() and equals() 	
+		methods are not overridden in class A
+		Q1-A) objects stored:
+		Q2-A) buckets created:
+		Q3-A) removed objects:
+
+Case #2:	only hashCode() method is overridden 
+		by returning directly 5;
+		Q1-A) objects stored:
+		Q2-A) buckets created:
+		Q3-A) removed objects:
+
+Case #3:	only equals() method is overridden 
+		by returning either true/false;
+		Q1-A) 
+		Q2-A) 
+		Q3-A) 
+
+Case #4:	hashCode() method is overridden 
+		by returning 5; also equals() method is 
+		overridden by returning true;
+		Q1-A) 
+		Q2-A) 
+		Q3-A) 
+
+Case #5:  in above case return false from equals() method
+		Q1-A) 
+		Q2-A) 
+		Q3-A) 
+
+Case #6: hashCode() method is overridden by returning x + y
+	        and equals() method is overridden by comparing 
+		x and y data
+		Q1-A) 
+		Q2-A) 
+		Q3-A) 
