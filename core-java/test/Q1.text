@@ -1,0 +1,32 @@
+# Online Gaming Leaderboard — Scenario-Based Problem
+
+
+
+A product-based company is developing an online multiplayer gaming platform.
+
+Players earn points by completing missions. The platform must maintain a leaderboard that automatically reflects player rankings whenever their scores change.
+
+Each player contains:
+
+- Player ID
+- Player Name
+- Score
+- Level
+
+Business Requirements
+
+1. Every player must have a unique Player ID, and the same player must never appear twice in the leaderboard.
+
+2. Players must always be arranged from highest score to lowest score.
+
+3. If two players have the same score, the player with the higher level must appear first. If both score and level are equal, arrange them alphabetically by player name.
+
+4. Whenever a player's score or level changes, the leaderboard must immediately reflect the updated ranking.
+
+5. The system must retrieve the top 10 players and allow finding the immediate higher-ranked and lower-ranked players without manually sorting the entire leaderboard.
+
+6. If a player leaves the game permanently, their record must be removed and the leaderboard must automatically adjust.
+
+### Additional Condition
+
+The leaderboard must maintain its correct ranking whenever players are added, updated, or removed.
